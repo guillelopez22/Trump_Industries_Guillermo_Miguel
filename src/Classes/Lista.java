@@ -1,14 +1,14 @@
 package Classes;
-public class Lista_ordenes {
-    Nodo_ordenes head;
+public class Lista {
+    Nodo head;
 
-    public Lista_ordenes() {
-        head = new Nodo_ordenes();
+    public Lista() {
+        head = new Nodo();
     }
 
-    public void insert(Ordenes orden, int pos) {
-        Nodo_ordenes newNodo = new Nodo_ordenes(orden);
-        Nodo_ordenes newHead = head;
+    public void insert(Object obj, int pos) {
+        Nodo newNodo = new Nodo(obj);
+        Nodo newHead = head;
         int cont = 0;
         if (pos == 0) {
             newNodo.setNext(head);
@@ -21,12 +21,12 @@ public class Lista_ordenes {
                 break;
             }
         }
-        Nodo_ordenes n = newHead.getNext();
+        Nodo n = newHead.getNext();
         newHead.setNext(newNodo);
         newNodo.setNext(n);
     }
 
-    public void setHead(Nodo_ordenes head) {
+    public void setHead(Nodo head) {
         this.head = head;
     }
 
@@ -34,9 +34,9 @@ public class Lista_ordenes {
         return 0;
     }
 
-    public Ordenes get(int pos) {
-        Nodo_ordenes temp = head;
-        Ordenes valor = temp.getValue();
+    public Object get(int pos) {
+        Nodo temp = head;
+        Object valor = temp.getValue();
         for (int i = 0; i < pos; i++) {
             temp = temp.getNext();
 
@@ -47,20 +47,20 @@ public class Lista_ordenes {
     }
 
     public void delete(int pos) {
-        Nodo_ordenes temp = head;
+        Nodo temp = head;
         for (int i = 1; i < pos - 1; i++) {
             temp = temp.getNext();
         }
-        Nodo_ordenes temp2 = temp.getNext();
+        Nodo temp2 = temp.getNext();
         temp.setNext(temp2.getNext());
     }
 
-    public Ordenes first() {
+    public Object first() {
         return head.getValue();
     }
 
     public void Print_Lista() {
-        Nodo_ordenes temp = head;
+        Nodo temp = head;
         int cont = 0;
         while (temp != null) {
             if (cont == 0) {
