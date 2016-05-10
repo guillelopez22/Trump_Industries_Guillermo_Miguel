@@ -1,7 +1,7 @@
 package Classes;
 public class Cola {
-    private Nodo inicio;
-    private Nodo termino;
+    private Nodo_Materiales inicio;
+    private Nodo_Materiales termino;
 
     public Cola() {
         inicio = null;
@@ -9,7 +9,7 @@ public class Cola {
     }
 
     public void insertar(Object obj) {
-        Nodo i = new Nodo(obj);
+        Nodo_Materiales i = new Nodo_Materiales(obj);
         i.setNext(null);
         if (inicio == null & termino == null) {
             inicio = i;
@@ -39,7 +39,7 @@ public class Cola {
 
     public int contar() {
         int contador = 0;
-        Nodo c = this.inicio;
+        Nodo_Materiales c = this.inicio;
         while (c != null) {
             contador++;
             c = c.getNext();
@@ -50,7 +50,7 @@ public class Cola {
 
     @Override
     public String toString() {
-        Nodo c = this.inicio;
+        Nodo_Materiales c = this.inicio;
         String s = "";
         while (c != null) {
             s = s + c.toString();

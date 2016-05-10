@@ -9,6 +9,6 @@ package Classes;
  *
  * @author Memo
  */
-public class NewClass {
+public class Lista_Productos {
     
 }
