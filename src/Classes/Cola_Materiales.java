@@ -1,15 +1,15 @@
 package Classes;
-public class Cola {
+public class Cola_Materiales {
     private Nodo_Materiales inicio;
     private Nodo_Materiales termino;
 
-    public Cola() {
+    public Cola_Materiales() {
         inicio = null;
         termino = null;
     }
 
-    public void insertar(Object obj) {
-        Nodo_Materiales i = new Nodo_Materiales(obj);
+    public void insertar(Material material) {
+        Nodo_Materiales i = new Nodo_Materiales(material);
         i.setNext(null);
         if (inicio == null & termino == null) {
             inicio = i;
