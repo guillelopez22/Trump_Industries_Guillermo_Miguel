@@ -1,12 +1,12 @@
 package Classes;
-public class Ordenes {
+public class Orden {
     Lista_Materiales materiales;
     
-    public Ordenes(){
+    public Orden(){
         
     }
     
-    public Ordenes(Lista_Materiales materiales){
+    public Orden(Lista_Materiales materiales){
         this.materiales = materiales;
     }
     
@@ -18,8 +18,5 @@ public class Ordenes {
         this.materiales = materiales;
     }
     
-    @Override
-    public String toString(){
-        return materiales;
-    }
+    
 }

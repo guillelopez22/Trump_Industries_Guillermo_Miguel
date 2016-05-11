@@ -1,15 +1,15 @@
 package Classes;
 public class Cola {
-    private Nodo_ordenes inicio;
-    private Nodo_ordenes termino;
+    private Nodo_Materiales inicio;
+    private Nodo_Materiales termino;
 
     public Cola() {
         inicio = null;
         termino = null;
     }
 
-    public void insertar(Ordenes ordenes) {
-        Nodo_ordenes i = new Nodo_ordenes(ordenes);
+    public void insertar(Object obj) {
+        Nodo_Materiales i = new Nodo_Materiales(obj);
         i.setNext(null);
         if (inicio == null & termino == null) {
             inicio = i;
@@ -19,8 +19,8 @@ public class Cola {
         termino = termino.getNext();
     }
 
-    public Ordenes extraer() {
-        Ordenes dato = inicio.getValue();
+    public Object extraer() {
+        Object dato = inicio.getValue();
         inicio = inicio.getNext();
         return dato;
     }
@@ -39,7 +39,7 @@ public class Cola {
 
     public int contar() {
         int contador = 0;
-        Nodo_ordenes c = this.inicio;
+        Nodo_Materiales c = this.inicio;
         while (c != null) {
             contador++;
             c = c.getNext();
@@ -50,7 +50,7 @@ public class Cola {
 
     @Override
     public String toString() {
-        Nodo_ordenes c = this.inicio;
+        Nodo_Materiales c = this.inicio;
         String s = "";
         while (c != null) {
             s = s + c.toString();
