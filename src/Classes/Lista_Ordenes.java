@@ -10,15 +10,15 @@ package Classes;
  * @author Memo
  */
 public class Lista_Ordenes {
-    Nodo_Empleado head;
+    Nodo_Orden head;
 
     public Lista_Ordenes() {
-        head = new Nodo_Empleado();
+        head = new Nodo_Orden();
     }
 
-    public void insert(Empleado empleado, int pos) {
-        Nodo_Empleado newNodo = new Nodo_Empleado(empleado);
-        Nodo_Empleado newHead = head;
+    public void insert(Orden orden, int pos) {
+        Nodo_Orden newNodo = new Nodo_Orden(orden);
+        Nodo_Orden newHead = head;
         int cont = 0;
         if (pos == 0) {
             newNodo.setNext(head);
@@ -31,12 +31,12 @@ public class Lista_Ordenes {
                 break;
             }
         }
-        Nodo_Empleado n = newHead.getNext();
+        Nodo_Orden n = newHead.getNext();
         newHead.setNext(newNodo);
         newNodo.setNext(n);
     }
 
-    public void setHead(Nodo_Empleado head) {
+    public void setHead(Nodo_Orden head) {
         this.head = head;
     }
 
@@ -45,7 +45,7 @@ public class Lista_Ordenes {
     }
 
     public Object get(int pos) {
-        Nodo_Empleado temp = head;
+        Nodo_Orden temp = head;
         Object valor = temp.getValue();
         for (int i = 0; i < pos; i++) {
             temp = temp.getNext();
@@ -57,11 +57,11 @@ public class Lista_Ordenes {
     }
 
     public void delete(int pos) {
-        Nodo_Empleado temp = head;
+        Nodo_Orden temp = head;
         for (int i = 1; i < pos - 1; i++) {
             temp = temp.getNext();
         }
-        Nodo_Empleado temp2 = temp.getNext();
+        Nodo_Orden temp2 = temp.getNext();
         temp.setNext(temp2.getNext());
     }
 
@@ -70,7 +70,7 @@ public class Lista_Ordenes {
     }
 
     public void Print_Lista() {
-        Nodo_Empleado temp = head;
+        Nodo_Orden temp = head;
         int cont = 0;
         while (temp != null) {
             if (cont == 0) {
