@@ -27,4 +27,11 @@ public class Nodo_Materiales {
     public void setNext(Nodo_Materiales next) {
         this.next = next;
     }
+
+    @Override
+    public String toString() {
+        return materiales.getNombre() ;
+    }
+    
+    
 }

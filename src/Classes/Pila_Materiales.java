@@ -14,6 +14,11 @@ public class Pila_Materiales {
     Nodo_Materiales head;
     int size = 0;
 
+    public Pila_Materiales(Material materiales) {
+        push(materiales);
+    }
+
+
     public void push(Material materiales) {
         Nodo_Materiales newNodo = new Nodo_Materiales();
         if (tos == null) {
@@ -43,5 +48,6 @@ public class Pila_Materiales {
         } else {
             return (Material) tos.getValue();
         }
-    }    
+    }       
+    
 }
