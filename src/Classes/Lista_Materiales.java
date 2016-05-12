@@ -49,9 +49,8 @@ public class Lista_Materiales {
         Nodo_Materiales temp = head;
         Material valor = temp.getValue();
         for (int i = 0; i < pos; i++) {
-//            valor = temp.getValue();
-//            temp = temp.getNext();
-
+            temp = temp.getNext(); 
+            valor = temp.getValue();
         }
         return valor;
     }

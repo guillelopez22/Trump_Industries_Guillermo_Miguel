@@ -6,9 +6,12 @@
 package Windows;
 
 import Classes.Material;
-import Classes.Pila_Materiales;
-import static Windows.MainWindow.cont_pilas;
+import static Windows.MainWindow.cont_materiales_almacen;
+import static Windows.MainWindow.lista_almacen_material;
+import static Windows.MainWindow.lista_materiales;
 import static Windows.MainWindow.lp_materiales;
+import static Windows.MainWindow.tam_lista_materiales;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -129,25 +132,42 @@ public class AgregarMaterial extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Material material = new Material(tx_nombreMate.getText(), txt_descripMate.getText(), txt_marcaMate.getText(), txt_serialMate.getText());
-        if (cont_pilas == 0) {
-            lp_materiales.insert(new Pila_Materiales(material), 0);
-            cont_pilas++;
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        Material material = new Material(tx_nombreMate.getText(),txt_descripMate.getText(),txt_marcaMate.getText(),txt_serialMate.getText());
+        lista_almacen_material.insert(material, cont_materiales_almacen);
+        int veces_repetidas = 0;
+        if (cont_materiales_almacen == 0) {
+            lista_materiales.insert(material, 0);
+            tam_lista_materiales++;
+            lista_materiales.setSize(tam_lista_materiales);
         } else {
-            for (int i = 0; i < cont_pilas; i++) {
-                if (lp_materiales.get(i).tos().getNombre().equals(material.getNombre())) {
-                    System.out.println("entro1 ");
-                    lp_materiales.get(i).push(material);
-                    
-                } else {
-                    System.out.println("entro2");
-                    lp_materiales.insert(new Pila_Materiales(material), cont_pilas-1);
-                    cont_pilas++;
+            for (int i = 0; i < cont_materiales_almacen; i++) {
+                if (material.getNombre().equals(lista_almacen_material.get(i).getNombre())) {
+                    veces_repetidas++;
                 }
+            }
+            System.out.println(veces_repetidas);
+            if (veces_repetidas == 0) {
+                lista_materiales.insert(material, tam_lista_materiales);
+                tam_lista_materiales++;
+                lista_materiales.setSize(tam_lista_materiales);
             }
         }
 
-        lp_materiales.Print_Lista();
+        cont_materiales_almacen++;
+        lista_almacen_material.setSize(cont_materiales_almacen);
+
+        System.out.print("almacen: ");
+        for (int i = 0; i < cont_materiales_almacen; i++) {
+            System.out.print(lista_almacen_material.get(i).getNombre());
+        }
+        System.out.println("");
+        System.out.print("lista: ");
+        for (int i = 0; i < tam_lista_materiales; i++) {
+            System.out.print(lista_materiales.get(i).getNombre());
+        }
+
+        lista_almacen_material.Print_Lista();
         tx_nombreMate.setText("");
         txt_descripMate.setText("");
         txt_marcaMate.setText("");

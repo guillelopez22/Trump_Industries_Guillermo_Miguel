@@ -12,7 +12,6 @@ public class Material {
         this.serial_number = serial_number;
     }
 
-    
     public String getNombre() {
         return nombre;
     }
