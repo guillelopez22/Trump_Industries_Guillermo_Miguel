@@ -8,6 +8,7 @@ package Windows;
 
 import Classes.Lista_Empleados;
 import Classes.Lista_Materiales;
+import Classes.Pila_Materiales;
 
 
 /**
@@ -154,4 +155,6 @@ public class MainWindow extends javax.swing.JFrame {
 public static Lista_Empleados empleados = new Lista_Empleados();
 public static int cont_empleados = 0;
 public static Lista_Materiales lista_material = new Lista_Materiales();
+public static int cont_material = 0;
+public static Pila_Materiales pila_materiales = new Pila_Materiales();
 }
