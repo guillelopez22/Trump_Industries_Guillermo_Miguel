@@ -22,7 +22,7 @@ public class Nodo_Empleado {
     }
             
 
-    public Object getValue() {
+    public Empleado getValue() {
         return empleado;
     }
 

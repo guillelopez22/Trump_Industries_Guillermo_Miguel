@@ -5,6 +5,8 @@
  */
 package Windows;
 
+import Classes.Lista_Empleados;
+
 /**
  *
  * @author Memo
@@ -148,4 +150,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+public static Lista_Empleados empleados = new Lista_Empleados();
+public static int cont_empleados = 0;
 }

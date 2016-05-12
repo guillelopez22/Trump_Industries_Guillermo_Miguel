@@ -10,7 +10,9 @@ package Classes;
  * @author Memo
  */
 public class Lista_Empleados {
+
     Nodo_Empleado head;
+    int size = 0;
 
     public Lista_Empleados() {
         head = new Nodo_Empleado();
@@ -44,14 +46,12 @@ public class Lista_Empleados {
         return 0;
     }
 
-    public Object get(int pos) {
+    public Empleado get(int pos) {
         Nodo_Empleado temp = head;
-        Object valor = temp.getValue();
+        Empleado valor = temp.getValue();
         for (int i = 0; i < pos; i++) {
             temp = temp.getNext();
-
             valor = temp.getValue();
-
         }
         return valor;
     }
@@ -88,11 +88,12 @@ public class Lista_Empleados {
         System.out.println("");
     }
 
-    public int getSize() {
-        int cont = 0;
-        while (head.getNext() != null) {
-            cont++;
-        }
-        return cont;
+    public void setSize(int cont) {
+         size = cont;
     }
+    public int size(){
+        return size; 
+    }
+
 }
+

@@ -6,6 +6,8 @@
 package Windows;
 
 import Classes.Empleado;
+import static Windows.MainWindow.empleados;
+import static Windows.MainWindow.cont_empleados;
 import javax.swing.JOptionPane;
 
 /**
@@ -160,10 +162,11 @@ public class NewEmployee extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        if (id_1.getText().trim().length() == 0 || id_2.getText().trim().length() == 0 || id_3.getText().trim().length() == 0 || tf_nomEmpleado.getText().trim().length() == 0 ||
-                tf_direccion.getText().trim().length() == 0 || tf_salario.getText().trim().length() == 0) {
+
+        if (id_1.getText().trim().length() == 0 || id_2.getText().trim().length() == 0 || id_3.getText().trim().length() == 0 || tf_nomEmpleado.getText().trim().length() == 0
+                || tf_direccion.getText().trim().length() == 0 || tf_salario.getText().trim().length() == 0) {
             JOptionPane.showMessageDialog(this, "Hay campos que no se han llenado");
-        }else{
+        } else {
             String id = id_1.getText() + "/" + id_2.getText() + "/" + id_3.getText();
             id_1.setText("");
             id_2.setText("");
@@ -176,9 +179,14 @@ public class NewEmployee extends javax.swing.JFrame {
             tf_direccion.setText("");
             double salario = Double.parseDouble(tf_salario.getText());
             tf_salario.setText("");
-            Empleado newEMP = new Empleado(nombre, id, edad, direccion, salario);
             JOptionPane.showMessageDialog(this, "Empleado creado con exito");
+            Empleado newEMP = new Empleado(nombre,id,edad,direccion,salario);
+            empleados.insert(newEMP, cont_empleados);
+            System.out.println(cont_empleados);
+            empleados.Print_Lista();
+            cont_empleados++;
         }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

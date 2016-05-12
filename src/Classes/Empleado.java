@@ -24,6 +24,9 @@ public class Empleado {
         this.salario = salario;
     }
 
+    public Empleado() {
+    }
+    
     public String getNombre() {
         return nombre;
     }
