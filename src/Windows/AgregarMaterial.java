@@ -6,6 +6,9 @@
 package Windows;
 
 import Classes.Material;
+import static Windows.MainWindow.cont_material;
+import static Windows.MainWindow.lista_material;
+import static Windows.MainWindow.pila_materiales;
 
 /**
  *
@@ -127,8 +130,15 @@ public class AgregarMaterial extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Material material = new Material(tx_nombreMate.toString(),txt_descripMate.toString(),txt_marcaMate.toString(),txt_serialMate.toString());
-        lista_material.find(tx_nombreMate.toString());
-        if()        
+        boolean ismaterial = lista_material.find(tx_nombreMate.toString());
+        if(ismaterial=false){
+            lista_material.insert(material,cont_material);
+            pila_materiales.push(material);
+            cont_material++;
+        }else{
+            pila_materiales.push(material);
+            cont_material++;
+        }        
         tx_nombreMate.setText("");
         txt_descripMate.setText("");
         txt_marcaMate.setText("");
