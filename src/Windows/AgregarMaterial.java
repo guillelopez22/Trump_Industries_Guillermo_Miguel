@@ -9,6 +9,8 @@ import Classes.Material;
 import static Windows.MainWindow.cont_material;
 import static Windows.MainWindow.lista_material;
 import static Windows.MainWindow.pila_materiales;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -129,16 +131,44 @@ public class AgregarMaterial extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Material material = new Material(tx_nombreMate.toString(),txt_descripMate.toString(),txt_marcaMate.toString(),txt_serialMate.toString());
-        boolean ismaterial = lista_material.find(tx_nombreMate.toString());
-        if(ismaterial=false){
-            lista_material.insert(material,cont_material);
-            pila_materiales.push(material);
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        Material material = new Material(tx_nombreMate.getText(),txt_descripMate.getText(),txt_marcaMate.getText(),txt_serialMate.getText());
+        System.out.println(material.toString());
+        //lista_material.insert(material, cont_material);
+        int veces_repetidas = 0;
+        System.out.println(cont_material);
+        if (cont_material == 0) {
+            lista_material.insert(material, 0);
+            lista_material.Print_Lista();
             cont_material++;
-        }else{
-            pila_materiales.push(material);
-            cont_material++;
-        }        
+            lista_material.setSize(cont_material);
+        } else {
+            for (int i = 0; i < cont_material; i++) {
+                if (material.getNombre().equals(lista_material.get(i).getNombre())) {
+                    veces_repetidas++;
+                }
+            }
+            System.out.println(veces_repetidas+"repetida");
+            if (veces_repetidas == 0) {
+                lista_material.insert(material, cont_material);
+                cont_material++;
+                lista_material.setSize(cont_material);
+            }
+        }
+
+        cont_material++;
+        lista_material.setSize(cont_material);
+
+        System.out.print("almacen: ");
+        for (int i = 0; i < cont_material; i++) {
+            System.out.print(lista_material.get(i).getNombre());
+        }
+        System.out.println("");
+        System.out.print("lista: ");
+        for (int i = 0; i < cont_material; i++) {
+          //System.out.print(lista_material.get(i).getNombre());
+        }
+        lista_material.Print_Lista();
         tx_nombreMate.setText("");
         txt_descripMate.setText("");
         txt_marcaMate.setText("");

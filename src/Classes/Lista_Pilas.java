@@ -1,17 +1,25 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Classes;
 
-public class Lista_Materiales {
+/**
+ *
+ * @author Miguel A. Ardon E
+ */
+public class Lista_Pilas {
 
-    Nodo_Materiales head;
-    int size = 0;
+    Nodo_Pila head;
 
-    public Lista_Materiales() {
-        head = new Nodo_Materiales();
+    public Lista_Pilas() {
+        head = new Nodo_Pila();
     }
 
-    public void insert(Material materiales, int pos) {
-        Nodo_Materiales newNodo = new Nodo_Materiales(materiales);
-        Nodo_Materiales newHead = head;
+    public void insert(Pila_Materiales pila, int pos) {
+        Nodo_Pila newNodo = new Nodo_Pila(pila);
+        Nodo_Pila newHead = head;
         int cont = 0;
         if (pos == 0) {
             newNodo.setNext(head);
@@ -24,20 +32,20 @@ public class Lista_Materiales {
                 break;
             }
         }
-        Nodo_Materiales n = newHead.getNext();
+        Nodo_Pila n = newHead.getNext();
         newHead.setNext(newNodo);
         newNodo.setNext(n);
     }
 
-    public void setHead(Nodo_Materiales head) {
+    public void setHead(Nodo_Pila head) {
         this.head = head;
     }
 
     public boolean find(String name) {
         boolean buscado = false;
-        Nodo_Materiales iterador = head;
+        Nodo_Pila iterador = head;
         while (buscado == false && iterador != null) {
-            if (iterador.getValue().getNombre().equals(name)) {
+            if (iterador.getValue().tos().getNombre().equals(name) ) {
                 buscado = true;
             }
             iterador = iterador.getNext();
@@ -45,32 +53,31 @@ public class Lista_Materiales {
         return buscado;
     }
 
-    public Material get(int pos) {
-        Nodo_Materiales temp = head;
-        Material valor = temp.getValue();
+    public Pila_Materiales get(int pos) {
+        Nodo_Pila temp = head;
+        Pila_Materiales valor = temp.getValue();
         for (int i = 0; i < pos; i++) {
-//            valor = temp.getValue();
-//            temp = temp.getNext();
-
+            temp = temp.getNext();
+            valor = temp.getValue();
         }
         return valor;
     }
 
     public void delete(int pos) {
-        Nodo_Materiales temp = head;
+        Nodo_Pila temp = head;
         for (int i = 1; i < pos - 1; i++) {
             temp = temp.getNext();
         }
-        Nodo_Materiales temp2 = temp.getNext();
+        Nodo_Pila temp2 = temp.getNext();
         temp.setNext(temp2.getNext());
     }
 
-    public Material first() {
+    public Object first() {
         return head.getValue();
     }
 
     public void Print_Lista() {
-        Nodo_Materiales temp = head;
+        Nodo_Pila temp = head;
         int cont = 0;
         while (temp != null) {
             if (cont == 0) {
@@ -88,12 +95,12 @@ public class Lista_Materiales {
         System.out.println("");
     }
 
-    public void setSize(int cont) {
-        size = cont;
-    }
-
-    public int size() {
-        return size;
+    public int getSize() {
+        int cont = 0;
+        while (head.getNext() != null) {
+            cont++;
+        }
+        return cont;
     }
 
 }

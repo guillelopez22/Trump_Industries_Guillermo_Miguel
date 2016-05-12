@@ -1,6 +1,6 @@
 package Classes;
 public class Nodo_Materiales {
-    Material materiales = null;
+    Material materiales;
     Nodo_Materiales next;
 
     public Nodo_Materiales(Material materiales){
@@ -12,7 +12,7 @@ public class Nodo_Materiales {
     }
             
 
-    public Object getValue() {
+    public Material getValue() {
         return materiales;
     }
 
