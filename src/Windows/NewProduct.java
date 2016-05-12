@@ -20,6 +20,7 @@ public class NewProduct extends javax.swing.JFrame {
         initComponents();
         cb_materiales.setVisible(false);
         jb_materiales.setVisible(false);
+        jb_add.setVisible(false);
     }
 
     /**
@@ -43,7 +44,7 @@ public class NewProduct extends javax.swing.JFrame {
         jf_time = new javax.swing.JFormattedTextField();
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jb_add = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,7 +81,7 @@ public class NewProduct extends javax.swing.JFrame {
 
         jLabel5.setText("Nuevo Producto");
 
-        jButton2.setText("Add");
+        jb_add.setText("Add");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,15 +112,16 @@ public class NewProduct extends javax.swing.JFrame {
                                         .addComponent(jcb_existentes)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(cb_materiales, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jButton1)
-                                        .addComponent(jb_materiales)))))
+                                    .addComponent(jb_materiales))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2))
+                        .addComponent(jb_add))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(96, 96, 96)
-                        .addComponent(jLabel5)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(jButton1)))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,12 +145,12 @@ public class NewProduct extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jcb_existentes)
                     .addComponent(cb_materiales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(jb_add))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jb_materiales)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(42, 42, 42))
         );
 
         pack();
@@ -175,10 +177,12 @@ public class NewProduct extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (jcb_existentes.isSelected() == true) {
             cb_materiales.setVisible(true);
+            jb_add.setVisible(true);
             jb_materiales.setVisible(false);
         }else{
             jb_materiales.setVisible(true);
             cb_materiales.setVisible(false);
+            jb_add.setVisible(false);
         }
     }//GEN-LAST:event_jcb_existentesActionPerformed
 
@@ -220,12 +224,12 @@ public class NewProduct extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cb_materiales;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JButton jb_add;
     private javax.swing.JButton jb_materiales;
     private javax.swing.JCheckBox jcb_existentes;
     private javax.swing.JFormattedTextField jf_time;
