@@ -12,6 +12,10 @@ public class Producto {
         this.materiales = materiales;
     }
 
+    public Producto() {
+    }
+    
+
     public String getNombre() {
         return nombre;
     }

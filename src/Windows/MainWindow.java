@@ -5,6 +5,7 @@
  */
 package Windows;
 
+import Classes.Cola_Ordenes;
 import Classes.Lista_Empleados;
 
 /**
@@ -126,6 +127,10 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        Productos prod = new Productos();
+        prod.pack();
+        prod.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        prod.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
@@ -172,4 +177,6 @@ public class MainWindow extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 public static Lista_Empleados empleados = new Lista_Empleados();
 public static int cont_empleados = 0;
+public static Cola_Ordenes  ordenes = new Cola_Ordenes();
+public static int cont_ordenes = 0;
 }
