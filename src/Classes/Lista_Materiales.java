@@ -32,17 +32,25 @@ public class Lista_Materiales {
         this.head = head;
     }
 
-    public int find(int num) {
-        return 0;
+    public boolean find(String name) {
+        boolean buscado = false;
+        Nodo_Materiales iterador = head;
+        while (buscado == false && iterador != null) {
+            if (iterador.materiales.getNombre().equals(name)) {
+                buscado = true;
+            }
+            iterador = iterador.getNext();
+        }
+        return buscado;
     }
 
-    public Object get(int pos) {
+    public Material get(int pos) {
         Nodo_Materiales temp = head;
-        Object valor = temp.getValue();
+        Material valor = (Material) temp.getValue();
         for (int i = 0; i < pos; i++) {
             temp = temp.getNext();
 
-            valor = temp.getValue();
+            valor = (Material) temp.getValue();
 
         }
         return valor;

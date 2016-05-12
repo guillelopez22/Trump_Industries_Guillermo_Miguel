@@ -127,8 +127,8 @@ public class AgregarMaterial extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Material material = new Material(tx_nombreMate.toString(),txt_descripMate.toString(),txt_marcaMate.toString(),txt_serialMate.toString());
-        
-        
+        lista_material.find(tx_nombreMate.toString());
+        if()        
         tx_nombreMate.setText("");
         txt_descripMate.setText("");
         txt_marcaMate.setText("");
