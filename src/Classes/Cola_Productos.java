@@ -1,9 +1,9 @@
 package Classes;
-public class Cola_Materiales {
+public class Cola_Productos {
     private Nodo_Materiales inicio;
     private Nodo_Materiales termino;
 
-    public Cola_Materiales() {
+    public Cola_Productos() {
         inicio = null;
         termino = null;
     }

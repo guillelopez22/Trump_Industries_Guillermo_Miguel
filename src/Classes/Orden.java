@@ -1,21 +1,21 @@
 package Classes;
 public class Orden {
-    Lista_Materiales materiales;
+    Cola_Productos productos;
     
     public Orden(){
         
     }
     
-    public Orden(Lista_Materiales materiales){
-        this.materiales = materiales;
+    public Orden(Cola_Productos productos){
+        this.productos = productos;
     }
     
-    public Lista_Materiales getMateriales(){
-        return  materiales;
+    public Cola_Productos getProductos(){
+        return  productos;
     }
     
-    public void setMateriales(Lista_Materiales materiales){
-        this.materiales = materiales;
+    public void setProductos(Cola_Productos productos){
+        this.productos = productos;
     }
     
     
