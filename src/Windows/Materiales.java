@@ -5,6 +5,13 @@
  */
 package Windows;
 
+import static Windows.EliminarMaterial.cb_delMaterial;
+import static Windows.MainWindow.cont_materiales_almacen;
+import static Windows.MainWindow.lista_materiales;
+import static Windows.ModificarMaterial.cb_modiMaterial;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
+
 /**
  *
  * @author Miguel A. Ardon E
@@ -41,8 +48,18 @@ public class Materiales extends javax.swing.JFrame {
         });
 
         jButton2.setText("Modificar Material");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Eliminar Material");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,6 +95,34 @@ public class Materiales extends javax.swing.JFrame {
         agregar.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         agregar.setVisible(true);        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        ModificarMaterial mod_material = new ModificarMaterial();
+        mod_material.pack();
+        mod_material.setVisible(true);
+        mod_material.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        model.addElement("--Seleccione un Material--");
+        for (int i = 0; i < cont_materiales_almacen; i++) {
+            model.addElement(lista_materiales.get(i).getNombre());
+        }
+        cb_modiMaterial.setModel(model);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        EliminarMaterial del_material = new EliminarMaterial();
+        del_material.pack();
+        del_material.setVisible(true);
+        del_material.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        model.addElement("--Seleccione un Material--");
+        for (int i = 0; i < cont_materiales_almacen; i++) {
+            model.addElement(lista_materiales.get(i).getNombre());
+        }
+        cb_delMaterial.setModel(model);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

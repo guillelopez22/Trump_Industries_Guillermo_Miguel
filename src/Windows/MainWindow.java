@@ -156,7 +156,7 @@ public class MainWindow extends javax.swing.JFrame {
         almacen.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         almacen.setVisible(true);
         DefaultComboBoxModel model = new DefaultComboBoxModel();
-        model.addElement("--Seleccione un Ingrediente--");
+        model.addElement("--Seleccione un Material--");
         for (int i = 0; i < tam_lista_materiales; i++) {
             model.addElement(lista_materiales.get(i));
         }
