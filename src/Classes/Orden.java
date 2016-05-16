@@ -1,20 +1,20 @@
 package Classes;
 public class Orden {
-    private Cola_Productos productos;
+    private Lista_Productos productos;
     
     public Orden(){
         
     }
     
-    public Orden(Cola_Productos productos){
+    public Orden(Lista_Productos productos){
         this.productos = productos;
     }
     
-    public Cola_Productos getProductos(){
+    public Lista_Productos getProductos(){
         return  productos;
     }
     
-    public void setProductos(Cola_Productos productos){
+    public void setProductos(Lista_Productos productos){
         this.productos = productos;
     }
     
