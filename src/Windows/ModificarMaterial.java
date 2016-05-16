@@ -6,6 +6,7 @@
 package Windows;
 
 import static Windows.MainWindow.lista_materiales;
+import static Windows.MainWindow.tam_lista_materiales;
 import javax.swing.JOptionPane;
 
 /**
@@ -60,6 +61,11 @@ public class ModificarMaterial extends javax.swing.JFrame {
 
         jLabel2.setText("Nombre:");
 
+        cb_modiMaterial.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_modiMaterialItemStateChanged(evt);
+            }
+        });
         cb_modiMaterial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cb_modiMaterialActionPerformed(evt);
@@ -81,19 +87,18 @@ public class ModificarMaterial extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(cb_modiMaterial, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addGap(18, 18, 18)
-                            .addComponent(txt_modiSerial))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addGap(18, 18, 18)
-                            .addComponent(txt_modiDescr))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addGap(18, 18, 18)
-                            .addComponent(txt_modiMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_modiSerial))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_modiDescr))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_modiMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
                 .addGap(25, 25, 25))
@@ -136,19 +141,30 @@ public class ModificarMaterial extends javax.swing.JFrame {
         if (txt_modiDescr.getText().isEmpty() || txt_modiMarca.getText().isEmpty() || txt_modiSerial.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "No se a modificado el material debido a campos vacios");
         } else {
-            lista_materiales.get(cb_modiMaterial.getSelectedIndex() - 1).setMarca(txt_modiMarca.getText());
-            lista_materiales.get(cb_modiMaterial.getSelectedIndex() - 1).setSerial_number(txt_modiSerial.getText());
-            lista_materiales.get(cb_modiMaterial.getSelectedIndex() - 1).setDescripcion(txt_modiDescr.getText());
+            lista_materiales.get(cb_modiMaterial.getSelectedIndex()).setMarca(txt_modiMarca.getText());
+            lista_materiales.get(cb_modiMaterial.getSelectedIndex()).setSerial_number(txt_modiSerial.getText());
+            lista_materiales.get(cb_modiMaterial.getSelectedIndex()).setDescripcion(txt_modiDescr.getText());
             JOptionPane.showMessageDialog(null, "Se a modificado correctamente el material");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void cb_modiMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_modiMaterialActionPerformed
         // TODO add your handling code here:
-        txt_modiDescr.setText(lista_materiales.get(cb_modiMaterial.getSelectedIndex() - 1).getDescripcion());
-        txt_modiSerial.setText(lista_materiales.get(cb_modiMaterial.getSelectedIndex() - 1).getSerial_number());
-        txt_modiMarca.setText(lista_materiales.get(cb_modiMaterial.getSelectedIndex() - 1).getMarca());
+//        if (cb_modiMaterial.getSelectedIndex() != tam_lista_materiales) {
+//            txt_modiDescr.setText(lista_materiales.get(cb_modiMaterial.getSelectedIndex()).getDescripcion());
+//            txt_modiSerial.setText(lista_materiales.get(cb_modiMaterial.getSelectedIndex()).getSerial_number());
+//            txt_modiMarca.setText(lista_materiales.get(cb_modiMaterial.getSelectedIndex()).getMarca());
+//        }
     }//GEN-LAST:event_cb_modiMaterialActionPerformed
+
+    private void cb_modiMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_modiMaterialItemStateChanged
+        // TODO add your handling code here:
+        if (cb_modiMaterial.getSelectedIndex() != 0) {
+            txt_modiDescr.setText(lista_materiales.get(cb_modiMaterial.getSelectedIndex()-1).getDescripcion());
+            txt_modiSerial.setText(lista_materiales.get(cb_modiMaterial.getSelectedIndex()-1).getSerial_number());
+            txt_modiMarca.setText(lista_materiales.get(cb_modiMaterial.getSelectedIndex()-1).getMarca());
+        }
+    }//GEN-LAST:event_cb_modiMaterialItemStateChanged
 
     /**
      * @param args the command line arguments

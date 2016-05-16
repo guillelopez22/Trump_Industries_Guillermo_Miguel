@@ -42,5 +42,17 @@ public class Pila_Materiales {
         } else {
             return tos.getValue();
         }
-    }           
+    }
+    
+    public int getsize(){
+        return size;
+    }
+    
+    public boolean empty(){
+        if(head==null){
+            return true; 
+        }else{
+            return false;
+        }
+    }
 }

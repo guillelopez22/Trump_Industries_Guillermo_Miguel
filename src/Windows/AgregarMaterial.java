@@ -9,8 +9,8 @@ import Classes.Material;
 import static Windows.MainWindow.cont_materiales_almacen;
 import static Windows.MainWindow.lista_almacen_material;
 import static Windows.MainWindow.lista_materiales;
-import static Windows.MainWindow.lp_materiales;
 import static Windows.MainWindow.tam_lista_materiales;
+import static Windows.ModificarMaterial.cb_modiMaterial;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -168,6 +168,11 @@ public class AgregarMaterial extends javax.swing.JFrame {
         }
 
         lista_almacen_material.Print_Lista();
+        model.addElement("--Seleccione un Material--");
+        for (int i = 0; i < tam_lista_materiales; i++) {
+            model.addElement(lista_materiales.get(i));
+        }
+//        cb_modiMaterial.setModel(model);
         tx_nombreMate.setText("");
         txt_descripMate.setText("");
         txt_marcaMate.setText("");
