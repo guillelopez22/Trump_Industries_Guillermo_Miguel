@@ -44,9 +44,9 @@ public class Lista_Productos {
         return 0;
     }
 
-    public Object get(int pos) {
+    public Producto get(int pos) {
         Nodo_Producto temp = head;
-        Object valor = temp.getValue();
+        Producto valor = temp.getValue();
         for (int i = 0; i < pos; i++) {
             temp = temp.getNext();
 
@@ -65,7 +65,7 @@ public class Lista_Productos {
         temp.setNext(temp2.getNext());
     }
 
-    public Object first() {
+    public Producto first() {
         return head.getValue();
     }
 

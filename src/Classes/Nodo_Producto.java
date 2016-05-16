@@ -22,7 +22,7 @@ public class Nodo_Producto {
     }
             
 
-    public Object getValue() {
+    public Producto getValue() {
         return producto;
     }
 
