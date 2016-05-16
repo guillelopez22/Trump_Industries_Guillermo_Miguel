@@ -112,7 +112,7 @@ public class Almacen extends javax.swing.JFrame {
                 }
             }
             for (int j = 0; j < cont; j++) {
-                lp_materiales.get(j).push(lista_materiales.get(i));
+                lp_materiales.get(j-1).push(lista_materiales.get(i));
             }
             cont = 0;
         }

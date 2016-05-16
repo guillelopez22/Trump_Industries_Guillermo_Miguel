@@ -104,13 +104,18 @@ public class EliminarMaterial extends javax.swing.JFrame {
         int resta = 0;
         int original = 0;
         int eliminado = 0;
+        for (int i = 0; i < lp_materiales.getSize(); i++) {
+           original+=lp_materiales.get(i).getsize(); 
+        }
+        System.out.println(original +"original");
+        //original = (lp_materiales.get(cb_delMaterial.getSelectedIndex()).getsize());
         original = (lp_materiales.get(cb_delMaterial.getSelectedIndex()).getsize());
         System.out.println(original);
         eliminado = Integer.parseInt(eliminar.getValue().toString());
         resta = original - eliminado;
         if (resta <= 0) {
-            lp_materiales.get(cb_delMaterial.getSelectedIndex()).pop();
-            lp_materiales.get(cb_delMaterial.getSelectedIndex()).pop();
+            //lp_materiales.get(cb_delMaterial.getSelectedIndex()-1).pop();
+            //lp_materiales.get(cb_delMaterial.getSelectedIndex()-1).pop();
             DefaultComboBoxModel modelo = new DefaultComboBoxModel();
             SpinnerNumberModel smodel = new SpinnerNumberModel();
             for (int i = 0; i < lp_materiales.getSize(); i++) {
