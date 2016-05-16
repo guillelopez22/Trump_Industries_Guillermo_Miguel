@@ -5,7 +5,13 @@
  */
 package Windows;
 
+import static Windows.MainWindow.lista_materiales;
+import static Windows.NewProduct.cont_prod_materiales;
+import static Windows.NewProduct.list_material;
+import static Windows.NewProduct.prod_materiales;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.ListModel;
 
 /**
  *
@@ -79,11 +85,17 @@ public class Inventory extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        DefaultListModel model = new DefaultListModel();
+        for (int i = 0; i < list_material.getModel().getSize(); i++) {
+            model.addElement(list_material.getModel().getElementAt(i));
+        }
         if (jl_inv.isSelectionEmpty()) {
             JOptionPane.showMessageDialog(this, "Seleccione algo");
         } else {
-            int pos = jl_inv.getSelectedIndex();
-
+            prod_materiales.insert(lista_materiales.get(jl_inv.getSelectedIndex()), cont_prod_materiales);
+            cont_prod_materiales++;
+            model.addElement(lista_materiales.get(jl_inv.getSelectedIndex()));
+           list_material.setModel(model);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

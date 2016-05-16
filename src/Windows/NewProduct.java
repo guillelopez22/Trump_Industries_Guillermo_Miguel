@@ -5,10 +5,13 @@
  */
 package Windows;
 
+import Classes.Lista_Materiales;
 import static Windows.Inventory.jl_inv;
 import static Windows.MainWindow.lista_materiales;
 import static Windows.MainWindow.tam_lista_materiales;
 import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -42,9 +45,9 @@ public class NewProduct extends javax.swing.JFrame {
         ft_time = new javax.swing.JFormattedTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         list_material = new javax.swing.JList();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,15 +71,15 @@ public class NewProduct extends javax.swing.JFrame {
         });
 
         jButton2.setText("Crear Producto");
-
-        jButton3.setText("Nuevo...");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
         jScrollPane1.setViewportView(list_material);
+
+        jLabel6.setText("Materiales del Producto:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,12 +110,10 @@ public class NewProduct extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel5)
                                         .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jButton1)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jButton3))
-                                            .addComponent(jScrollPane1))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jButton1)
+                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel6))))
                                 .addGap(0, 43, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(133, 133, 133)
@@ -139,21 +140,18 @@ public class NewProduct extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3))
+                    .addComponent(jButton1))
                 .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
                 .addComponent(jButton2)
                 .addGap(23, 23, 23))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -167,6 +165,10 @@ public class NewProduct extends javax.swing.JFrame {
         }
         jl_inv.setModel(model);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,15 +209,17 @@ public class NewProduct extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField ft_time;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList list_material;
+    public static javax.swing.JList list_material;
     private javax.swing.JTextField tf_descProd;
     private javax.swing.JTextField tf_nomProd;
     // End of variables declaration//GEN-END:variables
+    public static Lista_Materiales prod_materiales = new Lista_Materiales();
+    public static int cont_prod_materiales = 0;
 }
