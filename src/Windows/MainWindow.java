@@ -200,4 +200,5 @@ public static Lista_Materiales  lista_materiales = new Lista_Materiales();
 public static int tam_lista_materiales = 0;
 public static int cont_materiales_almacen = 0;
 public static Lista_Productos lista_productos = new Lista_Productos();
+public static int cont_productos = 0;
 }
