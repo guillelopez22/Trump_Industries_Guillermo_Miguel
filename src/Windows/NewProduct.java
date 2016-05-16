@@ -8,7 +8,9 @@ package Windows;
 import Classes.Lista_Materiales;
 import Classes.Producto;
 import static Windows.Inventory.jl_inv;
+import static Windows.MainWindow.cont_productos;
 import static Windows.MainWindow.lista_materiales;
+import static Windows.MainWindow.lista_productos;
 import static Windows.MainWindow.tam_lista_materiales;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
@@ -180,6 +182,8 @@ public class NewProduct extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "creado con exito");
         DefaultListModel model = new DefaultListModel();
         list_material.setModel(model);
+        lista_productos.insert(producto, cont_productos);
+        cont_productos++;
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

@@ -1,10 +1,10 @@
 package Classes;
 public class Empleado {
-    public String nombre;
-    public String identidad;
-    public int edad;
-    public String direccion;
-    public double salario;
+    private String nombre;
+    private String identidad;
+    private int edad;
+    private String direccion;
+    private double salario;
 
     public Empleado(String nombre, String identidad, int edad, String direccion, double salario) {
         this.nombre = nombre;

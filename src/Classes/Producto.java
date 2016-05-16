@@ -1,9 +1,9 @@
 package Classes;
 public class Producto {
-    String nombre;
-    String descripcion;
-    int tiempo_esamblado;
-    Lista_Materiales materiales;
+    private String nombre;
+    private String descripcion;
+    private int tiempo_esamblado;
+    private Lista_Materiales materiales;
 
     public Producto(String nombre, String descripcion, int tiempo_esamblado, Lista_Materiales materiales) {
         this.nombre = nombre;
