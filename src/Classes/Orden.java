@@ -1,6 +1,6 @@
 package Classes;
 public class Orden {
-    Cola_Productos productos;
+    private Cola_Productos productos;
     
     public Orden(){
         
