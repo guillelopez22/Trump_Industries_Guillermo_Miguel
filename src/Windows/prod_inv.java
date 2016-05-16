@@ -5,23 +5,23 @@
  */
 package Windows;
 
-import Classes.Lista_Productos;
-import static Windows.MainWindow.cont_productos;
 import static Windows.MainWindow.lista_productos;
-import static Windows.prod_inv.list_prod;
+import static Windows.NewOrder.cont_list_prods;
+import static Windows.NewOrder.jl_prods;
+import static Windows.NewOrder.list_prods;
+import static Windows.NewProduct.list_material;
 import javax.swing.DefaultListModel;
-import javax.swing.JFrame;
 
 /**
  *
- * @author Memo
+ * @author Miguel A. Ardon E
  */
-public class NewOrder extends javax.swing.JFrame {
+public class prod_inv extends javax.swing.JFrame {
 
     /**
-     * Creates new form NewOrder
+     * Creates new form prod_inv
      */
-    public NewOrder() {
+    public prod_inv() {
         initComponents();
     }
 
@@ -36,33 +36,21 @@ public class NewOrder extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jl_prods = new javax.swing.JList();
-        jLabel3 = new javax.swing.JLabel();
-        ft_numero = new javax.swing.JFormattedTextField();
+        list_prod = new javax.swing.JList();
         jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Nueva Orden");
+        jLabel1.setText("Producto a Agregar:");
 
-        jScrollPane1.setViewportView(jl_prods);
+        jScrollPane1.setViewportView(list_prod);
 
-        jLabel3.setText("Numero:");
-
-        ft_numero.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
-        jButton1.setText("Productos...");
+        jButton1.setText("Ok");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        jLabel2.setText("Productos en la Orden:");
-
-        jButton2.setText("Crear");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -72,41 +60,23 @@ public class NewOrder extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(ft_numero, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                        .addGap(94, 94, 94)
+                        .addComponent(jButton1)))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(27, 27, 27)
                 .addComponent(jLabel1)
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(ft_numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addGap(1, 1, 1)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(jButton1)
                 .addContainerGap())
         );
 
@@ -115,15 +85,15 @@ public class NewOrder extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        prod_inv inv = new prod_inv();
-        inv.pack();
-        inv.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        inv.setVisible(true);
         DefaultListModel model = new DefaultListModel();
-        for (int i = 0; i < cont_productos; i++) {
-            model.addElement(lista_productos.get(i));
+        for (int i = 0; i < list_prod.getModel().getSize(); i++) {
+            model.addElement(list_prod.getModel().getElementAt(i));
         }
-        list_prod.setModel(model);
+        list_prods.insert(lista_productos.get(list_prod.getSelectedIndex()), cont_list_prods);
+        cont_list_prods++;
+        model.addElement(lista_productos.get(list_prod.getSelectedIndex()));
+        jl_prods.setModel(model);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -143,34 +113,28 @@ public class NewOrder extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewOrder.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(prod_inv.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewOrder.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(prod_inv.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewOrder.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(prod_inv.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewOrder.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(prod_inv.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewOrder().setVisible(true);
+                new prod_inv().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFormattedTextField ft_numero;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JList jl_prods;
+    public static javax.swing.JList list_prod;
     // End of variables declaration//GEN-END:variables
-    public static Lista_Productos list_prods = new Lista_Productos();
-    public static int cont_list_prods = 0;
 }

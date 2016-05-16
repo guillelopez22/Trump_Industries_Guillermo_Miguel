@@ -22,7 +22,7 @@ public class Nodo_Orden {
     }
             
 
-    public Object getValue() {
+    public Orden getValue() {
         return orden;
     }
 

@@ -44,9 +44,9 @@ public class Lista_Ordenes {
         return 0;
     }
 
-    public Object get(int pos) {
+    public Orden get(int pos) {
         Nodo_Orden temp = head;
-        Object valor = temp.getValue();
+        Orden valor = temp.getValue();
         for (int i = 0; i < pos; i++) {
             temp = temp.getNext();
 
@@ -65,7 +65,7 @@ public class Lista_Ordenes {
         temp.setNext(temp2.getNext());
     }
 
-    public Object first() {
+    public Orden first() {
         return head.getValue();
     }
 
