@@ -178,6 +178,8 @@ public class NewProduct extends javax.swing.JFrame {
         ft_time.setText("");
         Producto producto = new Producto(nombre,descripcion,tiempo_esamblaje, prod_materiales);
         JOptionPane.showMessageDialog(this, "creado con exito");
+        DefaultListModel model = new DefaultListModel();
+        list_material.setModel(model);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

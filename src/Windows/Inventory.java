@@ -42,7 +42,7 @@ public class Inventory extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Escoja uno:");
+        jLabel1.setText("Escoja materiales para el producto:");
 
         jScrollPane1.setViewportView(jl_inv);
 
