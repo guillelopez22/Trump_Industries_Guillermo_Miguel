@@ -8,6 +8,7 @@ package Windows;
 import static Windows.EliminarMaterial.cb_delMaterial;
 import static Windows.MainWindow.cont_materiales_almacen;
 import static Windows.MainWindow.lista_materiales;
+import static Windows.MainWindow.tam_lista_materiales;
 import static Windows.ModificarMaterial.cb_modiMaterial;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
@@ -104,7 +105,7 @@ public class Materiales extends javax.swing.JFrame {
         mod_material.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         model.addElement("--Seleccione un Material--");
-        for (int i = 0; i < cont_materiales_almacen; i++) {
+        for (int i = 0; i < tam_lista_materiales; i++) {
             model.addElement(lista_materiales.get(i).getNombre());
         }
         cb_modiMaterial.setModel(model);
@@ -118,7 +119,7 @@ public class Materiales extends javax.swing.JFrame {
         del_material.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         model.addElement("--Seleccione un Material--");
-        for (int i = 0; i < cont_materiales_almacen; i++) {
+        for (int i = 0; i < tam_lista_materiales; i++) {
             model.addElement(lista_materiales.get(i).getNombre());
         }
         cb_delMaterial.setModel(model);

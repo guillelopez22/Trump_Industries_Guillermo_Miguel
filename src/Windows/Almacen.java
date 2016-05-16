@@ -100,13 +100,13 @@ public class Almacen extends javax.swing.JFrame {
             }
             label_cant.setText(Integer.toString(existencias));
         }
-        for (int i = 0; i < lista_materiales.size(); i++) {
+        for (int i = 0; i < lista_materiales.size()-1; i++) {
             Pila_Materiales pila = new Pila_Materiales();
             lp_materiales.insert(pila, i);
         }
         int cont = 0;
-        for (int i = 0; i < lista_materiales.size(); i++) {
-            for (int j = 0; j < lista_almacen_material.size(); j++) {
+        for (int i = 0; i < lista_materiales.size()-1; i++) {
+            for (int j = 0; j < lista_almacen_material.size()-1; j++) {
                 if (lista_materiales.get(i).getNombre().equals(lista_almacen_material.get(j).getNombre())) {
                     cont ++;
                 }

@@ -5,6 +5,10 @@
  */
 package Windows;
 
+import static Windows.MainWindow.lp_materiales;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.SpinnerNumberModel;
+
 /**
  *
  * @author Miguel A. Ardon E
@@ -31,6 +35,8 @@ public class EliminarMaterial extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         cb_delMaterial = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        eliminar = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,7 +44,22 @@ public class EliminarMaterial extends javax.swing.JFrame {
 
         jLabel2.setText("Nombre:");
 
+        cb_delMaterial.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_delMaterialItemStateChanged(evt);
+            }
+        });
+
         jButton1.setText("Eliminar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setText("Eliminar:");
+
+        eliminar.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -46,9 +67,12 @@ public class EliminarMaterial extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(84, 84, 84)
-                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel11))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1)
                     .addComponent(jLabel1)
                     .addComponent(cb_delMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -63,13 +87,62 @@ public class EliminarMaterial extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(cb_delMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addGap(19, 19, 19)
                 .addComponent(jButton1)
                 .addContainerGap(114, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int resta = 0;
+        int original = 0;
+        int eliminado = 0;
+        original = (lp_materiales.get(cb_delMaterial.getSelectedIndex()).getsize());
+        System.out.println(original);
+        eliminado = Integer.parseInt(eliminar.getValue().toString());
+        resta = original - eliminado;
+        if (resta <= 0) {
+            lp_materiales.get(cb_delMaterial.getSelectedIndex()).pop();
+            lp_materiales.get(cb_delMaterial.getSelectedIndex()).pop();
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            SpinnerNumberModel smodel = new SpinnerNumberModel();
+            for (int i = 0; i < lp_materiales.getSize(); i++) {
+                if (!lp_materiales.get(i).empty()) {
+                    modelo.addElement(lp_materiales.get(i).tos());
+                    smodel.setValue(lp_materiales.get(i).getsize());
+                }
+            }
+            cb_delMaterial.setModel(modelo);
+            eliminar.setModel(smodel);
+        } else if (resta > 0) {
+            for (int i = 0; i < eliminado; i++) {
+                lp_materiales.get(cb_delMaterial.getSelectedIndex()).pop();
+                lp_materiales.get(cb_delMaterial.getSelectedIndex()).pop();
+                DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+                SpinnerNumberModel smodel = new SpinnerNumberModel();
+                for (int j = 0; j < lp_materiales.getSize(); j++) {
+                    if (!lp_materiales.get(j).empty()) {
+                        modelo.addElement(lp_materiales.get(j).tos());
+                        smodel.setValue(lp_materiales.get(j).getsize());
+                    }
+                }
+                cb_delMaterial.setModel(modelo);
+                eliminar.setModel(smodel);
+            }
+        }
+        System.out.println(resta);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cb_delMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_delMaterialItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_delMaterialItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -108,8 +181,10 @@ public class EliminarMaterial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JComboBox cb_delMaterial;
+    private javax.swing.JSpinner eliminar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
