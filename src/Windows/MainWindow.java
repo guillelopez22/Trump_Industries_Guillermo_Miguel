@@ -9,10 +9,9 @@ package Windows;
 import Classes.Lista_Empleados;
 import Classes.Lista_Materiales;
 import Classes.Lista_Pilas;
+import Classes.Lista_Productos;
 import static Windows.Almacen.cb_itemes;
-import static Windows.Inventory.jl_inv;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListModel;
 
 
 
@@ -200,4 +199,5 @@ public static Lista_Pilas lp_materiales = new Lista_Pilas();
 public static Lista_Materiales  lista_materiales = new Lista_Materiales();
 public static int tam_lista_materiales = 0;
 public static int cont_materiales_almacen = 0;
+public static Lista_Productos lista_productos = new Lista_Productos();
 }

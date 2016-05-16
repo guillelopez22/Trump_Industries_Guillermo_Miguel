@@ -6,11 +6,13 @@
 package Windows;
 
 import Classes.Lista_Materiales;
+import Classes.Producto;
 import static Windows.Inventory.jl_inv;
 import static Windows.MainWindow.lista_materiales;
 import static Windows.MainWindow.tam_lista_materiales;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 /**
@@ -168,6 +170,14 @@ public class NewProduct extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        String nombre = tf_nomProd.getText();
+        tf_nomProd.setText("");
+        String descripcion = tf_descProd.getText();
+        tf_descProd.setText("");
+        int tiempo_esamblaje = Integer.parseInt(ft_time.getText());
+        ft_time.setText("");
+        Producto producto = new Producto(nombre,descripcion,tiempo_esamblaje, prod_materiales);
+        JOptionPane.showMessageDialog(this, "creado con exito");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
