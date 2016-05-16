@@ -9,8 +9,10 @@ package Windows;
 import Classes.Lista_Empleados;
 import Classes.Lista_Materiales;
 import Classes.Lista_Pilas;
-import javax.swing.DefaultComboBoxModel;
 import static Windows.Almacen.cb_itemes;
+import static Windows.Inventory.jl_inv;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 
 
 
@@ -147,6 +149,10 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        Productos prod = new Productos();
+        prod.pack();
+        prod.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        prod.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
@@ -156,6 +162,7 @@ public class MainWindow extends javax.swing.JFrame {
         almacen.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         almacen.setVisible(true);
         DefaultComboBoxModel model = new DefaultComboBoxModel();
+        
         model.addElement("--Seleccione un Material--");
         for (int i = 0; i < tam_lista_materiales; i++) {
             model.addElement(lista_materiales.get(i));

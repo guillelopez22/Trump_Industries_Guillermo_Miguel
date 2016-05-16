@@ -105,7 +105,7 @@ public class Materiales extends javax.swing.JFrame {
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         model.addElement("--Seleccione un Material--");
         for (int i = 0; i < cont_materiales_almacen; i++) {
-            model.addElement(lista_materiales.get(i).getNombre());
+            model.addElement(lista_materiales.get(i));
         }
         cb_modiMaterial.setModel(model);
     }//GEN-LAST:event_jButton2ActionPerformed
