@@ -109,6 +109,7 @@ public class EliminarMaterial extends javax.swing.JFrame {
         }
         System.out.println(original +"original");
         //original = (lp_materiales.get(cb_delMaterial.getSelectedIndex()).getsize());
+        original = (lp_materiales.get(cb_delMaterial.getSelectedIndex()).getsize());
         System.out.println(original);
         eliminado = Integer.parseInt(eliminar.getValue().toString());
         resta = original - eliminado;

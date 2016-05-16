@@ -105,6 +105,9 @@ public class Materiales extends javax.swing.JFrame {
         mod_material.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         model.addElement("--Seleccione un Material--");
+        for (int i = 0; i < cont_materiales_almacen; i++) {
+            model.addElement(lista_materiales.get(i));
+        }
         for (int i = 0; i < tam_lista_materiales; i++) {
             model.addElement(lista_materiales.get(i).getNombre());
         }

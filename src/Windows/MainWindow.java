@@ -9,8 +9,9 @@ package Windows;
 import Classes.Lista_Empleados;
 import Classes.Lista_Materiales;
 import Classes.Lista_Pilas;
-import javax.swing.DefaultComboBoxModel;
+import Classes.Lista_Productos;
 import static Windows.Almacen.cb_itemes;
+import javax.swing.DefaultComboBoxModel;
 
 
 
@@ -147,6 +148,10 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        Productos prod = new Productos();
+        prod.pack();
+        prod.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        prod.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
@@ -156,6 +161,7 @@ public class MainWindow extends javax.swing.JFrame {
         almacen.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         almacen.setVisible(true);
         DefaultComboBoxModel model = new DefaultComboBoxModel();
+        
         model.addElement("--Seleccione un Material--");
         for (int i = 0; i < tam_lista_materiales; i++) {
             model.addElement(lista_materiales.get(i));
@@ -193,4 +199,5 @@ public static Lista_Pilas lp_materiales = new Lista_Pilas();
 public static Lista_Materiales  lista_materiales = new Lista_Materiales();
 public static int tam_lista_materiales = 0;
 public static int cont_materiales_almacen = 0;
+public static Lista_Productos lista_productos = new Lista_Productos();
 }
